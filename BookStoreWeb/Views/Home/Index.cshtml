@@ -1,0 +1,184 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="slider_section ">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="detail-box">
+                                <h5>
+                                    Bookstore Books
+                                </h5>
+                                <h1>
+                                    La tienda virtual <br>
+                                    de los mejores libros
+                                </h1>
+                                <p>
+                                    Aquí encontrarás los mejores libros, con todas las categorías que te gustan
+                                </p>
+                                <a asp-area="" asp-controller="Books" asp-action="Index"> Ver más... </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img-box">
+                                <img src="images/about-img.png" alt="books">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="detail-box">
+                                <h5>
+                                    Bookstore Autors
+                                </h5>
+                                <h1>
+                                    Los mejores autores <br>
+                                    Estan aquí
+                                </h1>
+                                <p>
+                                    Si buscas autores apasionados por la escritura, estas en el lugar ideal...
+                                </p>
+                                <a asp-area="" asp-controller="Autors" asp-action="Index"> Ver más... </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img-box">
+                                <img src="images/slider-img.png" alt="autors">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel_btn_box">
+            <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="catagory_section layout_padding">
+    <div class="catagory_container">
+        <div class="container ">
+            <div class="heading_container heading_center">
+                <h2>
+                    Categorías
+                </h2>
+                <p>
+                    Aquí encuentras todas las categorías que tenemos para ti
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="images/cat1.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Clásicos
+                            </h5>
+                            <p>
+                                Porque sabemos que te gustan los libros clásicos, aquí tenemos más que clásicos, leyendas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="images/cat2.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Ciencia
+                            </h5>
+                            <p>
+                                La ciencia, la gran realidad, donde conoceras los más profundos secretos del universo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="images/cat3.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Historia
+                            </h5>
+                            <p>
+                                Para aquellos amates de nuestros origenes aquí están los mejores acontecimientos de nuestra historia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="images/cat4.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Biografías
+                            </h5>
+                            <p>
+                                Tus ídolos son nuestros ídolos... 
+                                Aquí conoceras la vida de cada uno de ellos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="images/cat5.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Aventura
+                            </h5>
+                            <p>
+                                Ese espíritu viajero y aventurero tiene que salir...
+                                Esta categoría espera por ti.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="images/cat6.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Fantasía
+                            </h5>
+                            <p>
+                                Los mundos desconocidos e irreales estan en la palma de tu mano... 
+                                Ciencia-ficción, magia y criaturas extraordinaras en un solo lugar
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

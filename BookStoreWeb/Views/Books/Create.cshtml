@@ -1,0 +1,75 @@
+﻿@model BookStoreWeb.Model.Entities.Book
+
+@{
+    ViewData["Title"] = "Nuevo Libro";
+}
+
+<section class="contact_section layout_padding">
+    <div class="container">
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            @if (ViewBag.Status == "success")
+            {
+                <div class="alert alert-success" role="alert">
+                    @ViewBag.Message
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.Message
+                </div>
+            }
+        }
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading_container ">
+                    <h2 class="">
+                        Registrar Libro
+                    </h2>
+                </div>
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Year" class="control-label"></label>
+                        <input asp-for="Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Category" class="control-label"></label>
+                        <select asp-for="Category" class="form-control">
+                            <option value="" selected disabled>Seleccione la categoría</option>
+                            <option value="SciFi">Ciencia Ficción</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Science">Ciencia</option>
+                            <option value="Tech">Tecnología</option>
+                            <option value="Classic">Clásica</option>
+                        </select>
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Autor" class="control-label"></label>
+                        <select asp-for="Autor" asp-items="ViewBag.autors" class="form-control">
+                            <option value="" selected disabled>Seleccione el autor</option>
+                        </select>
+                        <span asp-validation-for="Autor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group btn-box">
+                        <button type="submit">Crear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

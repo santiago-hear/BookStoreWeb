@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BookStoreWeb.Model.Entities.Book>
+
+@{
+    ViewData["Title"] = "Libros";
+}
+
+<section class="about_section mb-3">
+
+    <div class="heading_container heading_center m-3">
+        <h2>
+            Libros
+        </h2>
+    </div>
+    <div class="detail-box m-3">
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            @if (ViewBag.Status == "success")
+            {
+                <div class="alert alert-success" role="alert">
+                    @ViewBag.Message
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.Message
+                </div>
+            }
+        }
+        <a asp-action="Create">Nuevo Libro</a>
+    </div>
+    @(Html.Kendo().Grid<BookStoreWeb.Model.Entities.Book>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.BookId).Width(120).Title("ID");
+        columns.Bound(p => p.Title).Width(200).Title("Título");
+        columns.Bound(p => p.Category).Width(200).Title("Categoría");
+        columns.Bound(p => p.Year).Width(150).Title("Año");
+        columns.Bound(p => p.Autor.Fullname).Width(200).Title("Autor");
+        columns.Command(command => { command.Edit().Text("Editar"); command.Destroy().Text("Eliminar"); }).Width(250).Title("Acciones");
+    })
+    .ToolBar(t => t.Search().Text("Buscar"))
+    .Editable(editable => editable.Mode(GridEditMode.InLine).ConfirmDelete("Eliminación de registros").DisplayDeleteConfirmation("¿Está seguro que desea eliminar el registro"))
+    .Pageable()
+    .Scrollable()
+    .Sortable()
+    .Filterable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(5)
+        .Events(events => events.Error("error_handler"))
+        .Model(model =>
+        {
+            model.Id(p => p.BookId);
+            model.Field(p => p.BookId).Editable(false);
+            model.Field(p => p.Autor.Fullname);
+        })
+        .Read(read => read.Action("Books", "Books"))
+        .Update(update => update.Action("Edit", "Books"))
+        .Destroy(delete => delete.Action("Delete", "Books"))
+        )
+    )
+</section>
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function() {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>
