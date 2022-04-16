@@ -10,6 +10,7 @@ namespace BookStoreWeb.Model.Entities
         [Required(ErrorMessage = "Ingrese el título")]
         public string? Title { get; set; }
         [Display(Name = "Año de publicación")]
+        [Range(1000, 2030, ErrorMessage = "El {0} debe estar entre {1} y {2}.")]
         [Required(ErrorMessage = "Ingrese el año de publicación del libro")]
         public string? Year { get; set; }
         [Display(Name = "Categoría")]
